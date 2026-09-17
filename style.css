@@ -1,0 +1,293 @@
+/* ============================================
+   Sistem Informasi Siswa — Dark Hijau-Oren Theme
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap');
+
+:root {
+    /* Background */
+    --bg-top: #0C2A1F;
+    --bg-mid: #0A2018;
+    --bg-bottom: #06140E;
+
+    /* Surface / cards — gradient hijau ke oren gelap */
+    --glass-bg: linear-gradient(135deg, #17402F 0%, #3A2712 100%);
+    --glass-border: #3A6B54;
+    --glow-color: rgba(232, 149, 42, 0.3);
+
+    /* Text */
+    --text-color: #DCEAE3;
+    --text-heading: #F2A73B;
+    --text-muted: #9FC2AE;
+
+    /* Accents */
+    --accent-cyan: #4FBE86;       /* hijau utama */
+    --accent-cyan-dark: #3FA772;
+    --accent-gold: #F2A73B;       /* oren utama */
+
+    /* Buttons */
+    --button-bg: linear-gradient(135deg, #E8952A, #F2B15A);
+    --button-hover: linear-gradient(135deg, #C97A1E, #E09A3D);
+    --danger-bg: linear-gradient(135deg, #C1443B, #E2564A);
+    --danger-hover: linear-gradient(135deg, #A3372F, #C1443B);
+
+    /* Chip / badge tints (translucent, untuk tema gelap) */
+    --success-tint: rgba(79, 190, 134, 0.18);
+    --success-border: rgba(79, 190, 134, 0.45);
+    --warning-tint: rgba(242, 167, 59, 0.18);
+    --warning-border: rgba(242, 167, 59, 0.45);
+    --danger-tint: rgba(226, 86, 74, 0.18);
+    --danger-border: rgba(226, 86, 74, 0.45);
+    --neutral-tint: rgba(255, 255, 255, 0.06);
+    --neutral-border: rgba(255, 255, 255, 0.18);
+
+    /* Input surface */
+    --input-bg: rgba(0, 0, 0, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 55%, var(--bg-bottom) 100%);
+    color: var(--text-color);
+    position: relative;
+    padding: 40px 20px;
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+/* Soft glow spots — hijau & oren, disengaja & rapi */
+body::before {
+    content: '';
+    position: fixed;
+    top: -20%;
+    left: -15%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(242, 167, 59, 0.16) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    bottom: -20%;
+    right: -15%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(79, 190, 134, 0.16) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Container Wrapper */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 32px;
+    position: relative;
+    z-index: 1;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Headings & Typography */
+h2 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-heading);
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.2px;
+}
+
+h3 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-heading);
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+a {
+    color: var(--accent-cyan);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-gold);
+    text-decoration: underline;
+}
+
+/* Form Styling */
+form {
+    max-width: 500px;
+    padding: 32px;
+    margin: 20px auto;
+    position: relative;
+    z-index: 1;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--text-heading);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="time"],
+textarea,
+select {
+    width: 100%;
+    padding: 11px 14px;
+    margin-bottom: 15px;
+    background: var(--input-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input::placeholder, textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 0.8;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px var(--glow-color);
+    background: rgba(0, 0, 0, 0.35);
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+/* Buttons */
+button, input[type="submit"] {
+    background: var(--button-bg);
+    color: #ffffff;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: filter 0.2s ease;
+    width: 100%;
+}
+
+button:hover, input[type="submit"]:hover {
+    filter: brightness(1.08);
+}
+
+button:disabled {
+    background: var(--neutral-tint);
+    color: var(--text-muted);
+    cursor: not-allowed;
+    filter: none;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    position: relative;
+    z-index: 1;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 13px 16px;
+    text-align: left;
+}
+
+th {
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--accent-gold);
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: background 0.15s ease;
+}
+
+tr:last-child {
+    border-bottom: none;
+}
+
+tr:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+/* Dropdown option styling (jurusan) */
+select option {
+    background-color: #17402F;
+    color: var(--text-color);
+    padding: 8px;
+}
+
+/* Decorative floating dots */
+.bubble {
+    position: fixed;
+    bottom: -30px;
+    background: var(--accent-gold);
+    border-radius: 50%;
+    opacity: 0.18;
+    pointer-events: none;
+    z-index: 0;
+    animation: rise 14s infinite linear;
+}
+
+.bubble:nth-child(1) { left: 8%;  width: 10px; height: 10px; animation-duration: 12s; }
+.bubble:nth-child(2) { left: 28%; width: 14px; height: 14px; animation-duration: 16s; animation-delay: 3s; background: var(--accent-cyan); }
+.bubble:nth-child(3) { left: 48%; width: 8px;  height: 8px;  animation-duration: 10s; animation-delay: 1.5s; }
+.bubble:nth-child(4) { left: 68%; width: 12px; height: 12px; animation-duration: 15s; animation-delay: 5s; background: var(--accent-cyan); }
+.bubble:nth-child(5) { left: 85%; width: 9px;  height: 9px;  animation-duration: 11s; animation-delay: 2s; }
+
+@keyframes rise {
+    0%   { transform: translateY(0) translateX(0); opacity: 0; }
+    10%  { opacity: 0.18; }
+    90%  { opacity: 0.18; }
+    100% { transform: translateY(-105vh) translateX(15px); opacity: 0; }
+}
